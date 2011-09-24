@@ -9,7 +9,7 @@ cd ..\..
 set
 set MSDEV_BASE=C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin
 set MSDEV71_BASE=C:\Program Files\Microsoft Visual Studio .NET 2003\Common7\Tools
-set WINSDK_BASE=C:\Program Files\Microsoft SDKs\Windows\v6.0\Bin
+set WINSDK_BASE=C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin
 rem
 rem ************************************************************
 rem Target 1: basic unit tests with gcc
@@ -48,15 +48,11 @@ nmake -f scite.mak QUIET=1
 if ERRORLEVEL 2 goto ERROR
 cd ..\..
 rem
-rem Set path for VC 6
-REM ~ path %MSDEV_BASE%;%path%
-rem
 rem ************************************************************
-rem Target 4: Visual C++ .NET using scite\boundscheck\SciTE.sln
-REM ~ call "%MSDEV71_BASE%\vsvars32.bat"
+rem Target 4: Visual C++ Express using scite\boundscheck\SciTE.sln
 REM ~ call scite\scripts\clearboth
 REM ~ cd scite\boundscheck
-REM ~ devenv scite.sln /rebuild release
+vcexpress scite.sln /rebuild release
 REM ~ if ERRORLEVEL 2 goto ERROR
 REM ~ cd ..\..
 rem
